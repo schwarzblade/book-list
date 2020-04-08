@@ -11,6 +11,9 @@
 //UI class: UI tasks
 
 class UI {
+
+
+
 	static displayBooks(){
 		
 
@@ -53,6 +56,14 @@ class UI {
 
 		list.appendChild(row);
 	}
+
+
+	static clearFields(){
+		const title = document.querySelector("#title").value = '';
+		const author = document.querySelector("#author").value = '';
+		const isbn = document.querySelector("#isbn").value = '';
+			
+	}
 }
 
 
@@ -83,6 +94,8 @@ document.querySelector("#book-form").addEventListener('submit',(e) => {
 	UI.addBookToList(book);
 
 //clear fields
+
+UI.clearFields();
 
 });
 
