@@ -68,6 +68,8 @@ class UI {
 		const container = document.querySelector('.container');
 		const form = document.querySelector('#book-form');
 		container.insertBefore(div, form);
+		//vanish in 3 sec
+		setTimeout(() => document.querySelector('.alert').remove(), 3000);
 	}
 
 	static clearFields(){
@@ -83,6 +85,13 @@ class UI {
 
 
 //strore class: handles storage
+
+
+class Store(){
+	
+}
+
+
 
 
 //events: diplay books
@@ -114,6 +123,11 @@ document.querySelector("#book-form").addEventListener('submit',(e) => {
 
 	UI.addBookToList(book);
 
+
+//valid succes message
+
+	UI.showAlert("Book added", 'success');
+
 //clear fields
 
 	UI.clearFields();
@@ -128,4 +142,6 @@ document.querySelector("#book-form").addEventListener('submit',(e) => {
 
 document.querySelector("#book-list").addEventListener('click',(e) => {
 	UI.deleteBook(e.target);
+
+	UI.showAlert("Book deleted", 'info');
 });
