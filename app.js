@@ -57,6 +57,12 @@ class UI {
 		list.appendChild(row);
 	}
 
+	static deleteBook(el){
+		if(el.classList.contains('delete')){
+			el.parentElement.parentElement.remove();
+		}
+	}
+
 
 	static clearFields(){
 		const title = document.querySelector("#title").value = '';
@@ -64,6 +70,9 @@ class UI {
 		const isbn = document.querySelector("#isbn").value = '';
 			
 	}
+
+
+
 }
 
 
@@ -101,3 +110,7 @@ UI.clearFields();
 
 
 //event: remove book
+
+document.querySelector("#book-list").addEventListener('click',(e) => {
+	UI.deleteBook(e.target);
+});
