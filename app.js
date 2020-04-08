@@ -1,6 +1,5 @@
 //book class
-
-class Book {
+ class Book {
 	constructor(title,author,isbn){
 		this.title = title;
 		this.author = author;
@@ -13,6 +12,8 @@ class Book {
 
 class UI {
 	static displayBooks(){
+		
+
 		const StoredBooks = [
 			{
 				title: 'Book one',
@@ -61,9 +62,29 @@ class UI {
 //events: diplay books
 
 
-document.addEventListener("DOMContentLoaded", UI.displayBooks);
+document.addEventListener("DOMContentLoaded", UI.displayBooks());
 
 //event: add book
+
+document.querySelector("#book-form").addEventListener('submit',(e) => {
+	//get form values
+	e.preventDefault();
+
+
+	const title = document.querySelector("#title").value;
+	const author = document.querySelector("#author").value;
+	const isbn = document.querySelector("#isbn").value;
+
+
+	const book = new Book(title,author,isbn);
+
+//add book to UI
+
+	UI.addBookToList(book);
+
+//clear fields
+
+});
 
 
 //event: remove book
